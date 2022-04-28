@@ -17,5 +17,6 @@ header {
 }
 .list-of-purchases {
   display: flex;
-  justify-content: space-between;
-}
+  justify-content: space-evenly;}
+
+  
