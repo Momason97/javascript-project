@@ -1,22 +1,63 @@
 body,
 header,
 h1,
+h2,
 ul {
   margin: 0px;
+  padding: 0;
+}
+
+main {
+  margin: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.budget-section {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+#budget {
+  margin-bottom: 10px;
+}
+
+#item,
+#how-much,
+#category {
+  margin-bottom: 10px;
+}
+
+.budget-button {
+  height: 20px;
+  width: 40px;
+  border-radius: 30px;
+}
+
+.budget-updating {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.budget-form {
+  display: flex;
+  flex-direction: column;
 }
 header {
   background-color: rgb(85, 100, 91);
-  height: 100px;
+  height: 20%;
 }
 .logo-img {
   width: 20%;
 }
 
 .list-container {
+  margin-top: 20px;
   background-color: #92a19e;
 }
 .list-of-purchases {
   display: flex;
-  justify-content: space-evenly;}
-
-  
+  justify-content: space-evenly;
+}

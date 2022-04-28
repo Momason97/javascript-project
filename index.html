@@ -8,19 +8,16 @@
     <title>Budget App</title>
   </head>
 
-  
   <body>
-   <header>
-    <img src="m2 budgets.jpg" alt="M Budget App Logo" class="logo-img" />
-  </header>
-  
+    <header>
+      <img src="m2 budgets.jpg" alt="M Budget App Logo" class="logo-img" />
+    </header>
+
     <main class="main">
-      <section>
+      <section class="budget-section">
         <label for="budget">Budget</label>
         <input type="number" for="budget" id="budget" />
         <button class="budget-button"></button>
-      </section>
-      <section>
         <form class="budget-form">
           <label for="item">Item bought:</label>
           <input type="text" name="item" id="item" />
@@ -32,7 +29,7 @@
             placeholder="Enter your number"
           />
           <label for="category">Choose a category:</label>
-          <select name="category" id="cars">
+          <select name="category" id="category">
             <option class="category-list" value="bills">Bills</option>
             <option class="category-list" value="food">Food</option>
             <option class="category-list" value="entertainment">
@@ -43,19 +40,11 @@
         </form>
         <button class="category-button">Click Here</button>
       </section>
-      <section>
-        <h2 class="entered-budget">Budget:</h2>
-        <h2 class="money-spent">Money Spent:</h2>
-        <h2 class="updated-budget">Updated Budget</h2>
+      <section class="budget-updating">
+        <h2 class="h2 entered-budget">Budget:</h2>
+        <h2 class="h2 money-spent">Money Spent:</h2>
+        <h2 class="h2 updated-budget">Updated Budget:</h2>
       </section>
-      <section class="list-container">
-      <ul class="list-of-purchases">
-        <lh class="label item-purchased">Item Purchased</lh>
-        <lh class="label price">Price</lh>
-        <lh class="label category">Category</lh>
-        <lh class="label category-total">Category Total</lh>
-      </ul>
-    </section>
     </main>
     <footer class="list-container">
       <ul class="list-of-purchases">
@@ -66,5 +55,4 @@
       </ul>
     </footer>
   </body>
-
 </html>
