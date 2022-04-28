@@ -15,3 +15,7 @@ header {
 .list-container {
   background-color: #92a19e;
 }
+.list-of-purchases {
+  display: flex;
+  justify-content: space-between;
+}
