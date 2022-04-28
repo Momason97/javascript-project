@@ -1,0 +1,13 @@
+body,
+header,
+h1,
+ul {
+  margin: 0px;
+}
+header {
+  background-color: rgb(85, 100, 91);
+  height: 100px;
+}
+.logo-img {
+  width: 20%;
+}
