@@ -7,8 +7,49 @@
     <link rel="stylesheet" href="stlye.css" />
     <title>Budget App</title>
   </head>
+
   <header>
     <img src="m2 budgets.jpg" alt="M Budget App Logo" class="logo-img" />
   </header>
-  <body></body>
+  <body>
+    <main class="main">
+      <section>
+        <label for="budget">Budget</label>
+        <input type="number" for="budget" id="budget" />
+        <button class="budget-button"></button>
+      </section>
+      <section>
+        <form class="budget-form">
+          <label for="item">Item bought:</label>
+          <input type="text" name="item" id="item" />
+          <label for="how-much">Ammount item cost:</label>
+          <input
+            type="number"
+            name="how-much"
+            id="how-much"
+            placeholder="Enter your number"
+          />
+          <label for="category">Choose a category:</label>
+          <select name="category" id="cars">
+            <option class="category-list" value="bills">Bills</option>
+            <option class="category-list" value="food">Food</option>
+            <option class="category-list" value="entertainment">
+              Entertainment
+            </option>
+            <option class="category-list" value="clothing">Clothing</option>
+          </select>
+        </form>
+        <button class="category-button">Click Here</button>
+      </section>
+      <section>
+        <h2 class="entered-budget">Budget:</h2>
+        <h2 class="money-spent">Money Spent:</h2>
+        <h2 class="updated-budget">Updated Budget</h2>
+      </section>
+    </main>
+  </body>
+
+ 
+  
+
 </html>
