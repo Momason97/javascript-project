@@ -15,9 +15,11 @@
 
     <main class="main">
       <section class="budget-section">
-        <label for="budget">Budget</label>
-        <input type="number" for="budget" id="budget" />
-        <button class="budget-button"></button>
+        <form class="budget-submit">
+          <label for="budget">Budget</label>
+          <input type="number" for="budget" id="budget" class="budget-input" />
+          <button class="budget-button">Submit</button>
+        </form>
         <form class="budget-form">
           <label for="item">Item bought:</label>
           <input type="text" name="item" id="item" />
@@ -41,18 +43,26 @@
         <button class="category-button">Click Here</button>
       </section>
       <section class="budget-updating">
-        <h2 class="h2 entered-budget">Budget:</h2>
-        <h2 class="h2 money-spent">Money Spent:</h2>
-        <h2 class="h2 updated-budget">Updated Budget:</h2>
+        <h3 class="h2 entered-budget">Budget:</h3>
+        <h3 class="h2 money-spent">Money Spent:</h3>
+        <h3 class="h2 updated-budget">Updated Budget:</h3>
+      </section>
+      <section class="category-totals">
+        <h3>Total spent in bills:</h3>
+        <h3>Total spent in food:</h3>
+        <h3>Total spent in entertainment:</h3>
+        <h3>Total spent in clothing:</h3>
       </section>
     </main>
     <footer class="list-container">
-      <ul class="list-of-purchases">
-        <lh class="label item-purchased">Item Purchased</lh>
-        <lh class="label price">Price</lh>
-        <lh class="label category">Category</lh>
-        <lh class="label category-total">Category Total</lh>
-      </ul>
+      <table class="list-of-purchases">
+        <tr>
+          <th>Item Purchased</th>
+          <th>Price</th>
+          <th>Category</th>
+        </tr>
+      </table>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
