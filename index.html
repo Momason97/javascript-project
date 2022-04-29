@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="stlye.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="stlye.css" />
+
     <title>Budget App</title>
   </head>
 
@@ -42,8 +43,10 @@
             placeholder="Enter your number"
           />
           <label for="category">Choose a category:</label>
-          <select name="category" id="category">
-            <option class="category-list bills" value="bills">Bills</option>
+          <select name="category" id="category" required>
+            <option class="category-list bills" value="bills" selected>
+              Bills
+            </option>
             <option class="category-list food" value="food">Food</option>
             <option class="category-list entertain" value="entertainment">
               Entertainment
@@ -71,7 +74,15 @@
         </tr>
       </table>
     </footer>
-    <div class="alert"></div>
+    <div class="alert-container">
+      <div class="alert">
+        <h3>
+          You have exhausted your weekly budget and are no longer able to
+          purchase anymore items!
+        </h3>
+        <button class="close-popup">New Budget</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

@@ -12,15 +12,74 @@ const totalBills = document.querySelector(".total-bills");
 const totalFood = document.querySelector(".total-food");
 const totalClothes = document.querySelector(".total-clothes");
 const totalEntertain = document.querySelector(".total-entertain");
+const alertContainer = document.querySelector(".alert-container");
+const closePopUp = document.querySelector(".close-popup");
 let budget = 0;
-const expenseItems = [];
+let counter = 0;
+const expenseItems = [
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+  {
+    item: "electric",
+    price: 7,
+    category: "bills",
+  },
+];
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
   console.dir(budgetInput.value);
   budget = budgetInput.value;
   console.log(budget);
-  budgetH2.textContent = `Budget: $${budget}`;
+  budgetH2.innerHTML = `Budget: <span class="numbers">$${budget}</span>`;
 });
 
 const newExpense = () => {
@@ -29,45 +88,33 @@ const newExpense = () => {
     <th class="item-header">Amount ($)</th>
     <th class="item-header">Category</th>
   </tr>`;
-  expenseItems.forEach((item) => {
+  expenseItems.forEach((item, index) => {
     const newTR = document.createElement("tr");
     const newItem = document.createElement("td");
     const newPrice = document.createElement("td");
     const newCategory = document.createElement("td");
+    const deleteButton = document.createElement("button");
     newItem.textContent = item.item;
     newPrice.textContent = item.price;
     newCategory.textContent = item.category;
-    newTR.append(newItem, newPrice, newCategory);
+    deleteButton.setAttribute("data-index", index);
+    deleteButton.classList.add("delete");
+    deleteButton.textContent = "X";
+    newTR.append(newItem, newPrice, newCategory, deleteButton);
     purchaseList.append(newTR);
   });
 };
 
-itemsBought.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const item = document.querySelector("#item").value;
-  console.log(item);
-  const howMuch = document.querySelector("#how-much").value;
-  console.log(howMuch);
-  const category = document.querySelector("#category").value;
-  console.log(category);
-  expenseItems.push({
-    item,
-    price: howMuch,
-    category,
-  });
-  newExpense();
-  document.querySelector("#item").value = "";
-  document.querySelector("#how-much").value = "";
-  document.querySelector("#category").value = "";
+const updateHeadings = () => {
   console.log(expenseItems);
-  let counter = 0;
+  counter = 0;
   expenseItems.forEach((item) => {
     counter += parseInt(item.price);
   });
-  moneySpent.textContent = `Money Spent: $${counter}`;
+  moneySpent.innerHTML = `Money Spent: <span class="numbers">$${counter}</span>`;
   let updated = 0;
   updated = budget - counter;
-  updatedBudget.textContent = `Updated Budget: $${updated}`;
+  updatedBudget.innerHTML = `Updated Budget: <span class="numbers">$${updated}</span>`;
 
   let totalB = 0;
   let totalC = 0;
@@ -84,16 +131,57 @@ itemsBought.addEventListener("submit", (e) => {
       totalE += parseInt(item.price);
     }
   });
-  totalBills.textContent = `Total spent in bills: $${totalB}`;
-  totalFood.textContent = `Total spent in food: $${totalF}`;
-  totalEntertain.textContent = `Total spent in entertainment: $${totalE}`;
-  totalClothes.textContent = `Total spent in clothes: $${totalC}`;
-  // totalB += parseInt(expenseItems.price);
+  totalBills.innerHTML = `Total spent in bills: <span class="numbers">$${totalB}</span>`;
+  totalFood.innerHTML = `Total spent in food: <span class="numbers">$${totalF}</span>`;
+  totalEntertain.innerHTML = `Total spent in entertainment: <span class ="numbers">$${totalE}</span>`;
+
+  totalClothes.innerHTML = `Total spent in clothes: <span class="numbers">$${totalC}</span>`;
   if (updated <= 0) {
-    alert(
-      `You cannot purchase additional items. You have depleted your budget of $${budget} by -$${
-        counter - budget
-      }.`
-    );
+    alertContainer.style.display = "flex";
+  }
+};
+
+itemsBought.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const item = document.querySelector("#item").value;
+  console.log(item);
+  const howMuch = document.querySelector("#how-much").value;
+  console.log(howMuch);
+  const category = document.querySelector("#category").value;
+  console.log(category);
+  expenseItems.push({
+    item,
+    price: howMuch,
+    category,
+  });
+  newExpense();
+  updateHeadings();
+  document.querySelector("#item").value = "";
+  document.querySelector("#how-much").value = "";
+  document.querySelector("#category").value = "bills";
+});
+
+closePopUp.addEventListener("click", () => {
+  alertContainer.style.display = "none";
+  totalClothes.textContent = `Total spent in clothes: $0`;
+  totalBills.textContent = `Total spent in bills: $0`;
+  totalFood.textContent = `Total spent in food: $0`;
+  totalEntertain.textContent = `Total spent in entertainment: $0`;
+  updatedBudget.textContent = `Updated Budget: $0`;
+  moneySpent.textContent = `Money Spent: $0`;
+  budgetH2.textContent = `Budget: $0`;
+  budgetInput.value = "";
+  purchaseList.innerHTML = `<tr>
+  <th class="item-header">Item</th>
+  <th class="item-header">Amount ($)</th>
+  <th class="item-header">Category</th>
+</tr>`;
+});
+purchaseList.addEventListener("click", (e) => {
+  const index = e.target.getAttribute("data-index");
+  if (e.target.classList.contains("delete")) {
+    expenseItems.splice(index, 1);
+    newExpense();
+    updateHeadings();
   }
 });
