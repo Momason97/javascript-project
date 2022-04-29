@@ -16,63 +16,7 @@ const alertContainer = document.querySelector(".alert-container");
 const closePopUp = document.querySelector(".close-popup");
 let budget = 0;
 let counter = 0;
-const expenseItems = [
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-  {
-    item: "electric",
-    price: 7,
-    category: "bills",
-  },
-];
+const expenseItems = [];
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
