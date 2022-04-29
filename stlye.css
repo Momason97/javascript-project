@@ -6,9 +6,16 @@ ul {
   margin: 0px;
   padding: 0;
 }
+header {
+  display: flex;
+  background-color: rgb(85, 100, 91);
+  height: 20%;
+}
 
 body {
   background-image: url("money.jpeg");
+  font-family: "BIZ UDPGothic", sans-serif;
+  font-weight: 400;
 }
 
 main {
@@ -21,6 +28,10 @@ main {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
+}
+.budget-section label {
+  padding-left: 5px;
+  padding-top: 5px;
 }
 .budget-submit {
   display: flex;
@@ -45,12 +56,16 @@ main {
 
 .budget-updating {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  padding-right: 10px;
-  background-color: rgb(85, 100, 91);
+  align-items: center;
+  margin-left: 15px;
 }
 
+h3 {
+  padding-right: 20px;
+  font-family: "BIZ UDPGothic", sans-serif;
+  font-weight: 700;
+}
 .budget-section label {
   font-weight: bold;
   background-color: rgb(85, 100, 91);
@@ -60,10 +75,7 @@ main {
   display: flex;
   flex-direction: column;
 }
-header {
-  background-color: rgb(85, 100, 91);
-  height: 20%;
-}
+
 .logo-img {
   width: 20%;
 }
@@ -82,12 +94,19 @@ header {
   justify-content: space-evenly;
   margin-left: 20px;
   background-color: rgb(85, 100, 91);
+  padding-left: 10px;
 }
-
+.category-button {
+  height: 20px;
+  width: 80px;
+  border-radius: 30px;
+}
 .list-of-purchases td {
   text-align: center;
 }
-
+.alert {
+  display: none;
+}
 @media only screen and (min-width: 768px) {
   main {
     flex-direction: column;

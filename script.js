@@ -91,7 +91,9 @@ itemsBought.addEventListener("submit", (e) => {
   // totalB += parseInt(expenseItems.price);
   if (updated <= 0) {
     alert(
-      `You have depleted your budget of $${budget} by -$${counter - budget}.`
+      `You cannot purchase additional items. You have depleted your budget of $${budget} by -$${
+        counter - budget
+      }.`
     );
   }
 });
