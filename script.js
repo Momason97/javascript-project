@@ -7,6 +7,11 @@ const budgetForm = document.querySelector(".budget-submit");
 const itemsBought = document.querySelector(".budget-form");
 const purchaseList = document.querySelector(".list-of-purchases");
 const moneySpent = document.querySelector(".money-spent");
+const updatedBudget = document.querySelector(".updated-budget");
+const totalBills = document.querySelector(".total-bills");
+const totalFood = document.querySelector(".total-food");
+const totalClothes = document.querySelector(".total-clothes");
+const totalEntertain = document.querySelector(".total-entertain");
 let budget = 0;
 const expenseItems = [];
 
@@ -57,8 +62,25 @@ itemsBought.addEventListener("submit", (e) => {
   console.log(expenseItems);
   let counter = 0;
   expenseItems.forEach((item) => {
-    counter += item.price;
+    counter += parseInt(item.price);
+  });
+  moneySpent.textContent = `Money Spent: $${counter}`;
+  let updated = 0;
+  updated = budget - counter;
+  updatedBudget.textContent = `Updated Budget: $${updated}`;
+
+  newExpense.forEach((item) => {
+    let totalB = 0;
+    let totalF = 0;
+    let totalE = 0;
+    let totalC = 0;
+    if (item.category === Bills) {
+      totalB += parseInt(item.price);
+    } else if (item.category === Clothing) {
+      totalC += parseInt(item.price);
+    }
   });
 
-  moneySpent.textContent = `Money Spent: $${parseInt(counter)}`;
+  // totalB += parseInt(expenseItems.price);
 });
+totalBills.textContent = `Total spent in bills: $${totalB}`;
