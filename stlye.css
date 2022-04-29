@@ -7,6 +7,10 @@ ul {
   padding: 0;
 }
 
+body {
+  background-image: url("money.jpeg");
+}
+
 main {
   margin: 10px 10px;
   display: flex;
@@ -44,6 +48,12 @@ main {
   flex-direction: column;
   justify-content: space-between;
   padding-right: 10px;
+  background-color: rgb(85, 100, 91);
+}
+
+.budget-section label {
+  font-weight: bold;
+  background-color: rgb(85, 100, 91);
 }
 
 .budget-form {
@@ -71,4 +81,31 @@ header {
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 20px;
+  background-color: rgb(85, 100, 91);
+}
+
+.list-of-purchases td {
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  .budget-section {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .budget-updating {
+    margin-top: 10px;
+    flex-direction: row;
+    border-bottom: solid 2px black;
+  }
+  .category-totals {
+    flex-direction: row;
+    margin-left: 0;
+  }
+  h3 {
+    padding: 10px;
+  }
 }

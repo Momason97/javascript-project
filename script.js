@@ -69,18 +69,29 @@ itemsBought.addEventListener("submit", (e) => {
   updated = budget - counter;
   updatedBudget.textContent = `Updated Budget: $${updated}`;
 
-  newExpense.forEach((item) => {
-    let totalB = 0;
-    let totalF = 0;
-    let totalE = 0;
-    let totalC = 0;
-    if (item.category === Bills) {
+  let totalB = 0;
+  let totalC = 0;
+  let totalF = 0;
+  let totalE = 0;
+  expenseItems.forEach((item) => {
+    if (item.category === "bills") {
       totalB += parseInt(item.price);
-    } else if (item.category === Clothing) {
+    } else if (item.category === "clothing") {
       totalC += parseInt(item.price);
+    } else if (item.category === "food") {
+      totalF += parseInt(item.price);
+    } else if (item.category === "entertainment") {
+      totalE += parseInt(item.price);
     }
   });
-
+  totalBills.textContent = `Total spent in bills: $${totalB}`;
+  totalFood.textContent = `Total spent in food: $${totalF}`;
+  totalEntertain.textContent = `Total spent in entertainment: $${totalE}`;
+  totalClothes.textContent = `Total spent in clothes: $${totalC}`;
   // totalB += parseInt(expenseItems.price);
+  if (updated <= 0) {
+    alert(
+      `You have depleted your budget of $${budget} by -$${counter - budget}.`
+    );
+  }
 });
-totalBills.textContent = `Total spent in bills: $${totalB}`;
