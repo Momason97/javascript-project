@@ -25,9 +25,6 @@ header {
   margin-left: 15px;
   width: 100%;
 }
-.budget-updating h3 {
-  flex: 1;
-}
 main {
   margin: 10px 10px;
   display: flex;
@@ -69,11 +66,14 @@ main {
   border-radius: 30px;
 }
 
-.budgeting-updating h3 {
-  padding-right: 20px;
+.budget-updating h3 {
+  /* padding-right: 20px; */
   font-family: "BIZ UDPGothic", sans-serif;
   font-weight: 700;
+  flex: 1;
+  /* justify-content: space-evenly; */
 }
+
 .budget-section label {
   font-weight: bold;
   background-color: rgb(85, 100, 91);
@@ -117,7 +117,7 @@ main {
 .list-of-purchases td {
   text-align: center;
 }
-.numbers {
+.budget-updating p {
   color: white;
 }
 
@@ -137,7 +137,7 @@ main {
 .alert {
   height: 200px;
   width: 200px;
-  background-color: #92a19e;
+  background-color: red;
   text-align: center;
   /* padding-left: 15px; */
 }
