@@ -22,13 +22,14 @@ let counter = 0;
 let expenseItems = [];
 
 budgetForm.addEventListener("submit", (e) => {
+  budgetDiv.innerHTML = `<h3 class="h3 entered-budget">Budget:</h3>`;
   e.preventDefault();
   console.dir(budgetInput.value);
   budget = budgetInput.value;
   console.log(budget);
   // budgetH2.innerHTML = `Budget: <span class="numbers">$${budget}</span>`;
   const budgetParagraph = document.createElement("p");
-  budgetParagraph.textContent = `$${budget}`;
+  budgetParagraph.innerHTML = `$${budget}`;
   budgetDiv.append(budgetParagraph);
 });
 

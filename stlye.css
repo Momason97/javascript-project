@@ -50,6 +50,21 @@ main {
   flex-direction: column;
   margin-bottom: 20px;
 }
+.budget-form label {
+  border-radius: 10px 10px 0 0;
+}
+.budget-form input {
+  border-radius: 0 0 10px 10px;
+}
+.budget-form select {
+  border-radius: 0 0 10px 10px;
+}
+.budget-submit input {
+  border-radius: 0 0 10px 10px;
+}
+.budget-submit label {
+  border-radius: 10px 10px 0 0;
+}
 #budget {
   margin-bottom: 10px;
 }
@@ -142,6 +157,12 @@ main {
   background-color: red;
   text-align: center;
   /* padding-left: 15px; */
+}
+
+.delete {
+  background-color: #92a19e;
+  color: red;
+  border: 0;
 }
 @media only screen and (min-width: 768px) {
   header {
