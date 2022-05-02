@@ -14,9 +14,9 @@ const totalClothes = document.querySelector(".total-clothes");
 const totalEntertain = document.querySelector(".total-entertain");
 const alertContainer = document.querySelector(".alert-container");
 const closePopUp = document.querySelector(".close-popup");
-const budgetDiv = document.querySelector("starting-budget");
-const moneyDiv = document.querySelector("total-money");
-const updatedDiv = document.querySelector("new-budget");
+const budgetDiv = document.querySelector(".starting-budget");
+const moneyDiv = document.querySelector(".total-money");
+const updatedDiv = document.querySelector(".new-budget");
 let budget = 0;
 let counter = 0;
 let expenseItems = [];
@@ -29,7 +29,7 @@ budgetForm.addEventListener("submit", (e) => {
   // budgetH2.innerHTML = `Budget: <span class="numbers">$${budget}</span>`;
   const budgetParagraph = document.createElement("p");
   budgetParagraph.textContent = `$${budget}`;
-  budgetH2.append(budgetParagraph);
+  budgetDiv.append(budgetParagraph);
 });
 
 const newExpense = () => {
@@ -49,13 +49,15 @@ const newExpense = () => {
     newCategory.textContent = item.category;
     deleteButton.setAttribute("data-index", index);
     deleteButton.classList.add("delete");
-    deleteButton.textContent = "X";
+    deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
     newTR.append(newItem, newPrice, newCategory, deleteButton);
     purchaseList.append(newTR);
   });
 };
 
 const updateHeadings = () => {
+  updatedDiv.innerHTML = `<h3 class="h3 updated-budget">Updated Budget:</h3>`;
+  moneyDiv.innerHTML = `<h3 class="h3 money-spent">Money Spent:</h3>`;
   console.log(expenseItems);
   counter = 0;
   expenseItems.forEach((item) => {
@@ -64,14 +66,14 @@ const updateHeadings = () => {
 
   const moneyParagraph = document.createElement("p");
   moneyParagraph.textContent = `$${counter}`;
-  moneySpent.append(moneyParagraph);
+  moneyDiv.append(moneyParagraph);
 
   let updated = 0;
   updated = budget - counter;
   // updatedBudget.innerHTML = `Updated Budget: <span class="numbers">$${updated}</span>`;
   const updatedParagraph = document.createElement("p");
   updatedParagraph.textContent = `$${updated}`;
-  updatedBudget.append(updatedParagraph);
+  updatedDiv.append(updatedParagraph);
 
   let totalB = 0;
   let totalC = 0;
@@ -127,9 +129,9 @@ closePopUp.addEventListener("click", () => {
   totalBills.textContent = `Total spent in bills: $0`;
   totalFood.textContent = `Total spent in food: $0`;
   totalEntertain.textContent = `Total spent in entertainment: $0`;
-  updatedBudget.textContent = `Updated Budget: $0`;
-  moneySpent.textContent = `Money Spent: $0`;
-  budgetH2.textContent = `Budget: $0`;
+  updatedDiv.innerHTML = `<h3 class="h3 updated-budget">Updated Budget:</h3>`;
+  moneyDiv.innerHTML = `<h3 class="h3 money-spent">Money Spent:</h3>`;
+  budgetDiv.innerHTML = `<h3 class="h3 entered-budget">Budget:</h3>`;
   budgetInput.value = "";
   purchaseList.innerHTML = `<tr>
   <th class="item-header">Item</th>
