@@ -44,13 +44,15 @@ const newExpense = () => {
     const newItem = document.createElement("td");
     const newPrice = document.createElement("td");
     const newCategory = document.createElement("td");
-    const deleteButton = document.createElement("button");
+    const deleteButton = document.createElement("p");
+    const icon = document.createElement("i");
     newItem.textContent = item.item;
     newPrice.textContent = item.price;
     newCategory.textContent = item.category;
-    deleteButton.setAttribute("data-index", index);
     deleteButton.classList.add("delete");
-    deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+    deleteButton.setAttribute("data-index", index);
+    icon.classList.add("fa-solid", "fa-trash-can");
+    deleteButton.append(icon);
     newTR.append(newItem, newPrice, newCategory, deleteButton);
     purchaseList.append(newTR);
   });
@@ -142,7 +144,7 @@ closePopUp.addEventListener("click", () => {
 });
 purchaseList.addEventListener("click", (e) => {
   const index = e.target.getAttribute("data-index");
-  if (e.target.classList.contains("delete")) {
+  if (e.target.classList.contains("fa-solid")) {
     expenseItems.splice(index, 1);
     newExpense();
     updateHeadings();
