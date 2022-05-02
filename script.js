@@ -16,7 +16,7 @@ const alertContainer = document.querySelector(".alert-container");
 const closePopUp = document.querySelector(".close-popup");
 let budget = 0;
 let counter = 0;
-const expenseItems = [];
+let expenseItems = [];
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -106,6 +106,9 @@ itemsBought.addEventListener("submit", (e) => {
 });
 
 closePopUp.addEventListener("click", () => {
+  budget = 0;
+  counter = 0;
+  expenseItems = [];
   alertContainer.style.display = "none";
   totalClothes.textContent = `Total spent in clothes: $0`;
   totalBills.textContent = `Total spent in bills: $0`;
