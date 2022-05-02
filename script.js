@@ -14,6 +14,9 @@ const totalClothes = document.querySelector(".total-clothes");
 const totalEntertain = document.querySelector(".total-entertain");
 const alertContainer = document.querySelector(".alert-container");
 const closePopUp = document.querySelector(".close-popup");
+const budgetDiv = document.querySelector("starting-budget");
+const moneyDiv = document.querySelector("total-money");
+const updatedDiv = document.querySelector("new-budget");
 let budget = 0;
 let counter = 0;
 let expenseItems = [];
@@ -23,7 +26,10 @@ budgetForm.addEventListener("submit", (e) => {
   console.dir(budgetInput.value);
   budget = budgetInput.value;
   console.log(budget);
-  budgetH2.innerHTML = `Budget: <span class="numbers">$${budget}</span>`;
+  // budgetH2.innerHTML = `Budget: <span class="numbers">$${budget}</span>`;
+  const budgetParagraph = document.createElement("p");
+  budgetParagraph.textContent = `$${budget}`;
+  budgetH2.append(budgetParagraph);
 });
 
 const newExpense = () => {
@@ -55,10 +61,17 @@ const updateHeadings = () => {
   expenseItems.forEach((item) => {
     counter += parseInt(item.price);
   });
-  moneySpent.innerHTML = `Money Spent: <span class="numbers">$${counter}</span>`;
+
+  const moneyParagraph = document.createElement("p");
+  moneyParagraph.textContent = `$${counter}`;
+  moneySpent.append(moneyParagraph);
+
   let updated = 0;
   updated = budget - counter;
-  updatedBudget.innerHTML = `Updated Budget: <span class="numbers">$${updated}</span>`;
+  // updatedBudget.innerHTML = `Updated Budget: <span class="numbers">$${updated}</span>`;
+  const updatedParagraph = document.createElement("p");
+  updatedParagraph.textContent = `$${updated}`;
+  updatedBudget.append(updatedParagraph);
 
   let totalB = 0;
   let totalC = 0;
