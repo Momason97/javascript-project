@@ -125,6 +125,10 @@ main {
   margin-left: 20px;
   background-color: rgb(85, 100, 91);
   padding-left: 10px;
+  border-radius: 20px;
+}
+.numbers {
+  color: white;
 }
 .category-button {
   height: 25px;
@@ -133,6 +137,9 @@ main {
 }
 .list-of-purchases td {
   text-align: center;
+}
+.list-of-purchases th {
+  padding: 10px;
 }
 .budget-updating p {
   color: white;
